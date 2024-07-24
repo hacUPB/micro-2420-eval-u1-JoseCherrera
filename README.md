@@ -33,3 +33,5 @@ El bus de dirección es una serie de líneas que transportan las direcciones de 
 La memoria se refiere a los componentes que almacenan datos e instrucciones que la CPU necesita para ejecutar programas. La memoria es esencial para el funcionamiento de cualquier sistema informático, ya que proporciona un espacio de almacenamiento temporal y permanente para los datos y las instrucciones que utiliza la CPU.
 ## ¿Que es Opcode?
 Es una parte fundamental de una instrucción de máquina que especifica la operación que debe realizarse. Cada instrucción de máquina se compone de dos partes principales: el Opcode y los Operandos.
+## Descripcion de los componentes del programa:
+Tiene una memoria ROM que se encarga de recibir las intruciones que da el pc y craga el programa, tambien tiene un clock que es la frecuencia a la que trabaja el programa , tiene la cpu que actua como el cerebro del programa, tiene la memoria que se encarga de guardar y enviar a la cpu las  intrucciones que le da el pc y por ultimo tienes unos botones que son los que presiona el usuario del pc. 
