@@ -70,37 +70,27 @@ Un ejemplo para este tipo de instruccion seria un salto condicional
 JMP_IF_ZERO R1, 100
 Aquí, JMP_IF_ZERO es la operación de salto condicional que se ejecuta si el contenido de R1 es cero, y 100 es la dirección a la que el programa saltará si la condición se cumple.
 ##  Explicacion de codigo punto 9:
-# 1.
-@i: Carga la ubicación de la variable i en el registro A.
-M=1: Establece el valor 1 en la ubicación asociada a i.
-# 2.
-@sum: Carga la ubicación de la variable sum en el registro A.
-M=0: Establece el valor 0 en la ubicación asociada a sum.
-# 3.
-@100: Carga la constante 100 en el registro A.
-D=A: Copia la constante 100 del registro A al registro D.
-# 4.
-@i: Carga la ubicación de la variable i en el registro A.
-D=D-M: Resta el valor de i al contenido de D (100), obteniendo 100 - i.
-# 5.
-@END: Carga la ubicación de la etiqueta END en el registro A.
-D;JLE: Salta a END si D es menor o igual a cero, lo que sucede cuando i es igual a 100.
-# 6.
-@i: Carga la ubicación de la variable i en el registro A.
-D=M: Copia el valor de i al registro D.
-# 7.
-@sum: Carga la ubicación de la variable sum en el registro A.
-M=M+D: Añade el valor del registro D a sum.
-# 8.
-@i: Carga la ubicación de la variable i en el registro A.
-M=M+1: Incrementa el valor de i en 1.
-# 9.
-@4: Carga la dirección 4 en el registro A.
-0;JMP: Salta a la instrucción en la dirección 4, que es @100.
-# 10.
-(END): Define la etiqueta END.
-@END: Carga la ubicación de la etiqueta END.
-0;JMP: Salta a la dirección de END, creando un bucle infinito.
+-@i:En esta linea de codigo se carga la ubicación de la variable i en el registro A.
+-M=1: En esta linea de codigo se Establece el valor 1 en la ubicación asociada a i.
+-@sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
+-M=0: En esta linea de codigo se Establece el valor 0 en la ubicación asociada a sum.
+-@100: En esta linea de codigo se Carga la constante 100 en el registro A.
+-D=A: En esta linea de codigo se Copia la constante 100 del registro A al registro D.
+-@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+-D=D-M: En esta linea de codigo se Resta el valor de i al contenido de D (100), obteniendo 100 - i.
+-@END: En esta linea de codigo se Carga la ubicación de la etiqueta END en el registro A.
+-D;JLE: En esta linea de codigo se Salta a END si D es menor o igual a cero, lo que sucede cuando i es igual a 100.
+-@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+-D=M: En esta linea de codigo se Copia el valor de i al registro D.
+-@sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
+-M=M+D: En esta linea de codigo se Añade el valor del registro D a sum.
+-@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+-M=M+1: En esta linea de codigo se Incrementa el valor de i en 1.
+-@4: En esta linea de codigo se Carga la dirección 4 en el registro A.
+-0;JMP: En esta linea de codigo se Salta a la instrucción en la dirección 4, que es @100.
+-(END):En esta linea de codigo Define la etiqueta END.
+-@END: En esta linea de codigo Carga la ubicación de la etiqueta END.
+-0;JMP:En esta linea de codigo Salta a la dirección de END, creando un bucle infinito.
 
 En general lo que hace programa es que suma los números del 1 al 99 y se buguea hasta llegar a este numero.
 
