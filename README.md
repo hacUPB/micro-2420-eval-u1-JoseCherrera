@@ -69,4 +69,37 @@ Ejemplo:
 Un ejemplo para este tipo de instruccion seria un salto condicional 
 JMP_IF_ZERO R1, 100
 Aquí, JMP_IF_ZERO es la operación de salto condicional que se ejecuta si el contenido de R1 es cero, y 100 es la dirección a la que el programa saltará si la condición se cumple.
+##  Explicacion de codigo punto 9:
+@i: Carga la ubicación de la variable i en el registro A.
+M=1: Establece el valor 1 en la ubicación asociada a i.
+
+@sum: Carga la ubicación de la variable sum en el registro A.
+M=0: Establece el valor 0 en la ubicación asociada a sum.
+
+@100: Carga la constante 100 en el registro A.
+D=A: Copia la constante 100 del registro A al registro D.
+
+@i: Carga la ubicación de la variable i en el registro A.
+D=D-M: Resta el valor de i al contenido de D (100), obteniendo 100 - i.
+
+@END: Carga la ubicación de la etiqueta END en el registro A.
+D;JLE: Salta a END si D es menor o igual a cero, lo que sucede cuando i es igual a 100.
+
+@i: Carga la ubicación de la variable i en el registro A.
+D=M: Copia el valor de i al registro D.
+
+@sum: Carga la ubicación de la variable sum en el registro A.
+M=M+D: Añade el valor del registro D a sum.
+
+@i: Carga la ubicación de la variable i en el registro A.
+M=M+1: Incrementa el valor de i en 1.
+
+@4: Carga la dirección 4 en el registro A.
+0;JMP: Salta a la instrucción en la dirección 4, que es @100.
+
+(END): Define la etiqueta END.
+@END: Carga la ubicación de la etiqueta END.
+0;JMP: Salta a la dirección de END, creando un bucle infinito.
+
+En conclusion, la funcion del programa suma los números del 1 al 99 y se buguea hasta llegar a este numero.
 
