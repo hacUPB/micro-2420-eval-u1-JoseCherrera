@@ -163,40 +163,42 @@ JMP (Control de flujo)
 
 - ARM Cortex-M4:
 
-*Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
-Ciclos de Reloj: 1 ciclo.
-Complejidad: Simple, optimizada para realizar operaciones aritméticas rápidamente, principalmente entre registros.
+* Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Simple, optimizada para realizar operaciones aritméticas rápidamente, principalmente entre registros.
 
 - MIPS32:
 
-Longitud: 4 bytes.
-Ciclos de Reloj: 1 ciclo.
-Complejidad: Simple, solo realiza operaciones entre registros, el uso de memoria requiere instrucciones adicionales.
+* Longitud: 4 bytes.
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Simple, solo realiza operaciones entre registros, el uso de memoria requiere instrucciones adicionales.
 #  3. Instrucción JMP: Control de Flujo
 
 - Intel 8086:
 
-Longitud: 3 bytes.
-Ciclos de Reloj: 15 ciclos.
-Complejidad: Moderada, permite saltos condicionales y directos dentro del mismo segmento.
+* Longitud: 3 bytes.
+* Ciclos de Reloj: 15 ciclos.
+* Complejidad: Moderada, permite saltos condicionales y directos dentro del mismo segmento.
 
 - ARM Cortex-M4:
 
-Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
-Ciclos de Reloj: 1 ciclo.
-Complejidad: Simple, permite saltos condicionales y directos con optimización para entornos embebidos.
+* Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Simple, permite saltos condicionales y directos con optimización para entornos embebidos.
 
 - MIPS32:
 
-Longitud: 4 bytes.
-Ciclos de Reloj: 1 ciclo.
-Complejidad: Simple, principalmente soporta saltos incondicionales y condicionales, con un diseño simplificado.
+* Longitud: 4 bytes.
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Simple, principalmente soporta saltos incondicionales y condicionales, con un diseño simplificado.
 
 # Conclusiones
 La comparación de estas instrucciones entre los tres microprocesadores revela diferencias importantes en términos de longitud, ciclos de reloj, y complejidad:
 
-Longitud: El MIPS32 y el ARM en modo ARM tienden a tener instrucciones de longitud fija (4 bytes), lo que simplifica el diseño del pipeline, mientras que el Intel 8086 tiene longitudes variables, lo que complica el proceso de decodificación.
-Ciclos de Reloj: El ARM Cortex-M4 es altamente optimizado, ejecutando la mayoría de las instrucciones en un solo ciclo, lo que lo hace extremadamente eficiente en términos de rendimiento por vatio, especialmente en aplicaciones embebidas. El Intel 8086, siendo un diseño más antiguo, requiere más ciclos de reloj para ejecutar operaciones similares.
-Complejidad: Las arquitecturas CISC como la del Intel 8086 tienen instrucciones más complejas que pueden realizar múltiples operaciones en una sola instrucción, pero a costa de una mayor latencia y complejidad de diseño. Las arquitecturas RISC como el ARM Cortex-M4 y el MIPS32 mantienen las instrucciones simples y de ejecución rápida, facilitando la implementación de técnicas avanzadas como pipelining.
+- Longitud: El MIPS32 y el ARM en modo ARM tienden a tener instrucciones de longitud fija (4 bytes), lo que simplifica el diseño del pipeline, mientras que el Intel 8086 tiene longitudes variables, lo que complica el proceso de decodificación.
+- Ciclos de Reloj: El ARM Cortex-M4 es altamente optimizado, ejecutando la mayoría de las instrucciones en un solo ciclo, lo que lo hace extremadamente eficiente en términos de rendimiento por vatio, especialmente en aplicaciones embebidas. El Intel 8086, siendo un diseño más antiguo, requiere más ciclos de reloj para ejecutar operaciones similares.
+- Complejidad: Las arquitecturas CISC como la del Intel 8086 tienen instrucciones más complejas que pueden realizar múltiples operaciones en una sola instrucción, pero a costa de una mayor latencia y complejidad de diseño. Las arquitecturas RISC como el ARM Cortex-M4 y el MIPS32 mantienen las instrucciones simples y de ejecución rápida, facilitando la implementación de técnicas avanzadas como pipelining.
+
+Entendí que el mapa de memoria de un microprocesador es como un plano que muestra cómo se organizan las direcciones de memoria y los periféricos que la CPU puede acceder, y que esto está relacionado con el bus de direcciones que envía esas direcciones. Por ejemplo, en el procesador 8086, se utiliza un bus multiplexado para optimizar los pines, lo que permite acceder a 1 MB de memoria usando 20 bits. Además, aprendí que hay dos arquitecturas principales: Von Neumann, donde datos e instrucciones comparten la misma memoria, y Harvard, donde están separados, lo que mejora la eficiencia. En cuanto al set de instrucciones, es el conjunto de comandos que el procesador puede ejecutar, y estas instrucciones pueden ser de diferentes tipos como mover datos, realizar cálculos o controlar el flujo del programa. Finalmente, hay dos tipos de arquitecturas según la complejidad de estas instrucciones: CISC, con instrucciones complejas que hacen varias tareas a la vez, y RISC, con instrucciones simples y rápidas, lo que hace que el procesador sea más eficiente.
 
 
