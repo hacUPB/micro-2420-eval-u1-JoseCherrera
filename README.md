@@ -70,28 +70,133 @@ Un ejemplo para este tipo de instruccion seria un salto condicional
 JMP_IF_ZERO R1, 100
 Aquí, JMP_IF_ZERO es la operación de salto condicional que se ejecuta si el contenido de R1 es cero, y 100 es la dirección a la que el programa saltará si la condición se cumple.
 ##  Explicacion de codigo punto 9:
--@i:En esta linea de codigo se carga la ubicación de la variable i en el registro A.
--M=1: En esta linea de codigo se Establece el valor 1 en la ubicación asociada a i.
--@sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
--M=0: En esta linea de codigo se Establece el valor 0 en la ubicación asociada a sum.
--@100: En esta linea de codigo se Carga la constante 100 en el registro A.
--D=A: En esta linea de codigo se Copia la constante 100 del registro A al registro D.
--@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
--D=D-M: En esta linea de codigo se Resta el valor de i al contenido de D (100), obteniendo 100 - i.
--@END: En esta linea de codigo se Carga la ubicación de la etiqueta END en el registro A.
--D;JLE: En esta linea de codigo se Salta a END si D es menor o igual a cero, lo que sucede cuando i es igual a 100.
--@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
--D=M: En esta linea de codigo se Copia el valor de i al registro D.
--@sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
--M=M+D: En esta linea de codigo se Añade el valor del registro D a sum.
--@i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
--M=M+1: En esta linea de codigo se Incrementa el valor de i en 1.
--@4: En esta linea de codigo se Carga la dirección 4 en el registro A.
--0;JMP: En esta linea de codigo se Salta a la instrucción en la dirección 4, que es @100.
--(END):En esta linea de codigo Define la etiqueta END.
--@END: En esta linea de codigo Carga la ubicación de la etiqueta END.
--0;JMP:En esta linea de codigo Salta a la dirección de END, creando un bucle infinito.
+- @i:En esta linea de codigo se carga la ubicación de la variable i en el registro A.
+- M=1: En esta linea de codigo se Establece el valor 1 en la ubicación asociada a i.
+- @sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
+- M=0: En esta linea de codigo se Establece el valor 0 en la ubicación asociada a sum.
+- @100: En esta linea de codigo se Carga la constante 100 en el registro A.
+- D=A: En esta linea de codigo se Copia la constante 100 del registro A al registro D.
+- @i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+- D=D-M: En esta linea de codigo se Resta el valor de i al contenido de D (100), obteniendo 100 - i.
+- @END: En esta linea de codigo se Carga la ubicación de la etiqueta END en el registro A.
+- D;JLE: En esta linea de codigo se Salta a END si D es menor o igual a cero, lo que sucede cuando i es igual a 100.
+- @i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+- D=M: En esta linea de codigo se Copia el valor de i al registro D.
+- @sum: En esta linea de codigo se Carga la ubicación de la variable sum en el registro A.
+- M=M+D: En esta linea de codigo se Añade el valor del registro D a sum.
+- @i: En esta linea de codigo se Carga la ubicación de la variable i en el registro A.
+- M=M+1: En esta linea de codigo se Incrementa el valor de i en 1.
+- @4: En esta linea de codigo se Carga la dirección 4 en el registro A.
+- 0;JMP: En esta linea de codigo se Salta a la instrucción en la dirección 4, que es @100.
+- (END):En esta linea de codigo Define la etiqueta END.
+- @END: En esta linea de codigo Carga la ubicación de la etiqueta END.
+-   0;JMP:En esta linea de codigo Salta a la dirección de END, creando un bucle infinito.
 
 En general lo que hace programa es que suma los números del 1 al 99 y se buguea hasta llegar a este numero.
+
+## ACTIVIDAD 2:
+# Punto 1:
+
+# Mapa de Memoria en Microprocesadores:
+- Definición: Es una representación de todas las direcciones que la CPU puede generar para acceder a diferentes tipos de memoria (RAM, ROM) y periféricos.
+Bus de Direcciones: Es un conjunto de líneas de comunicación que la CPU utiliza para enviar direcciones de memoria.
+-Aleación de Von Neumann vs Harvard: La arquitectura de Von Neumann usa una memoria unificada para datos e instrucciones, mientras que Harvard las separa en diferentes memorias y buses.
+# Set de Instrucciones:
+- Definición: Conjunto de comandos que el procesador puede ejecutar, como mover datos, realizar cálculos, o controlar el flujo del programa.
+- Tipos de Instrucciones:
+* Transferencia de Datos (MOV): Mueve datos entre registros o entre registros y memoria.
+* Aritméticas y Lógicas (ADD): Realizan operaciones matemáticas.
+* Control de Flujo (JMP): Alteran el flujo de ejecución del programa.
+*Manipulación de Bits (BSF): Operan a nivel de bits.
+# Características de las Instrucciones:
+- Sintaxis: El formato y la estructura de las instrucciones.
+- Opcode: Código binario que indica la operación a realizar.
+- Tamaño y Ciclos de Reloj: Varía según la instrucción, afectando la eficiencia del procesador.
+# Arquitecturas CISC y RISC:
+- CISC: Instrucciones complejas que realizan múltiples tareas en una sola instrucción. Ejemplo: x86.
+- RISC: Instrucciones simples y rápidas, optimizadas para ejecutarse en un solo ciclo de reloj. Ejemplo: ARM.
+
+# Punto 2:
+
+Un procesador interesante que sigue una arquitectura diferente a la de Von Neumann es el Intel 8051, que utiliza una arquitectura Harvard. A diferencia de la arquitectura Von Neumann, donde el mismo bus y la misma memoria se usan tanto para instrucciones como para datos, en la arquitectura Harvard, como la del 8051, existen buses y memorias separadas para instrucciones y datos. Esto permite un acceso simultáneo a las instrucciones y datos, lo que puede aumentar la eficiencia del procesamiento.
+
+El mapa de memoria del Intel 8051 es distinto y más complejo debido a esta separación. El procesador tiene una memoria de programa y una memoria de datos separadas. La memoria de programa es de solo lectura (ROM) y típicamente tiene un tamaño de 4 KB, direccionada desde 0000h hasta 0FFFh. Por otro lado, la memoria de datos (RAM) es de lectura/escritura, con un tamaño típico de 128 bytes, direccionada desde 00h hasta 7Fh. Además, el 8051 cuenta con memoria de datos externa que puede expandirse hasta 64 KB, direccionada desde 0000h hasta FFFFh.
+
+Esta separación permite que el procesador 8051 acceda a una instrucción en la memoria de programa al mismo tiempo que accede a datos en la memoria de datos, eliminando el cuello de botella característico de la arquitectura Von Neumann, donde las instrucciones y los datos compiten por el mismo bus y memoria.
+
+Este diseño es ideal para aplicaciones en microcontroladores donde la eficiencia y la velocidad son cruciales, como en sistemas embebidos y dispositivos electrónicos que requieren control preciso y rápido​.
+
+# Punto 3:
+
+Para realizar la comparación de instrucciones entre diferentes microprocesadores, elegí tres microprocesadores ampliamente conocidos: el Intel 8086, el ARM Cortex-M4 y el MIPS32. Las instrucciones seleccionadas para la comparación son:
+
+MOV (Transferencia de datos)
+ADD (Aritmética)
+JMP (Control de flujo)
+
+# 1. Instrucción MOV: Transferencia de Datos
+
+-  Intel 8086:
+
+* Longitud: 2 a 4 bytes.
+* Ciclos de Reloj: 2 ciclos para registros, 8 ciclos para memoria.
+* Complejidad: Simple, permite la transferencia de datos entre registros, memoria y registros, o registros y constantes.
+
+- ARM Cortex-M4:
+
+* Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Relativamente simple, optimizada para eficiencia energética, permite la transferencia entre registros y registros, o registros y memoria.
+
+- MIPS32:
+
+* Longitud: 4 bytes.
+* Ciclos de Reloj: 1 ciclo.
+* Complejidad: Simple, instrucción de carga/almacenamiento, permite la transferencia entre registros y memoria.
+## 2. Instrucción ADD: Aritmética
+
+- Intel 8086:
+
+* Longitud: 2 a 4 bytes.
+* Ciclos de Reloj: 3 ciclos para registros, 15 ciclos para memoria.
+* Complejidad: Moderada, permite sumar registros, valores inmediatos o valores en memoria.
+
+- ARM Cortex-M4:
+
+*Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
+Ciclos de Reloj: 1 ciclo.
+Complejidad: Simple, optimizada para realizar operaciones aritméticas rápidamente, principalmente entre registros.
+
+- MIPS32:
+
+Longitud: 4 bytes.
+Ciclos de Reloj: 1 ciclo.
+Complejidad: Simple, solo realiza operaciones entre registros, el uso de memoria requiere instrucciones adicionales.
+#  3. Instrucción JMP: Control de Flujo
+
+- Intel 8086:
+
+Longitud: 3 bytes.
+Ciclos de Reloj: 15 ciclos.
+Complejidad: Moderada, permite saltos condicionales y directos dentro del mismo segmento.
+
+- ARM Cortex-M4:
+
+Longitud: 2 bytes (Thumb-2) o 4 bytes (ARM).
+Ciclos de Reloj: 1 ciclo.
+Complejidad: Simple, permite saltos condicionales y directos con optimización para entornos embebidos.
+
+- MIPS32:
+
+Longitud: 4 bytes.
+Ciclos de Reloj: 1 ciclo.
+Complejidad: Simple, principalmente soporta saltos incondicionales y condicionales, con un diseño simplificado.
+
+# Conclusiones
+La comparación de estas instrucciones entre los tres microprocesadores revela diferencias importantes en términos de longitud, ciclos de reloj, y complejidad:
+
+Longitud: El MIPS32 y el ARM en modo ARM tienden a tener instrucciones de longitud fija (4 bytes), lo que simplifica el diseño del pipeline, mientras que el Intel 8086 tiene longitudes variables, lo que complica el proceso de decodificación.
+Ciclos de Reloj: El ARM Cortex-M4 es altamente optimizado, ejecutando la mayoría de las instrucciones en un solo ciclo, lo que lo hace extremadamente eficiente en términos de rendimiento por vatio, especialmente en aplicaciones embebidas. El Intel 8086, siendo un diseño más antiguo, requiere más ciclos de reloj para ejecutar operaciones similares.
+Complejidad: Las arquitecturas CISC como la del Intel 8086 tienen instrucciones más complejas que pueden realizar múltiples operaciones en una sola instrucción, pero a costa de una mayor latencia y complejidad de diseño. Las arquitecturas RISC como el ARM Cortex-M4 y el MIPS32 mantienen las instrucciones simples y de ejecución rápida, facilitando la implementación de técnicas avanzadas como pipelining.
 
 
